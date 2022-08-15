@@ -1,4 +1,4 @@
-const app = require("express")();
+const app = require("express")()
 const { v4 } = require("uuid")
 const fs = require("fs");
 const EasyAES = require("easy-aes");
@@ -32,7 +32,7 @@ app.get("/get/:user/:url", (req,res) => {
   sorted = Object.fromEntries(
     Object.entries(sorted)
       .map(data => {
-        return data.map(entry => aes.encrypt(String(entry)))
+        return data.map(entry => aes.decrypt(String(entry)))
       })
    )
   
